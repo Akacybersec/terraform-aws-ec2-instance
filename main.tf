@@ -27,7 +27,9 @@ resource "aws_instance" "this" {
   cpu_threads_per_core = var.cpu_threads_per_core
   hibernation          = var.hibernation
 
-  user_data                   = var.user_data
+  #reference user_data.sh script
+  user_data                   = file("${path.module}/user_data.sh")
+
   user_data_base64            = var.user_data_base64
   user_data_replace_on_change = var.user_data_replace_on_change
 
